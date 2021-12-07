@@ -1,11 +1,7 @@
-#include <stdio.h>
 #include <iostream>
 #include <random>
-#include <list>
-#include <cmath>
 #include <map>
 #include <vector>
-#include <utility>
 #include <gsl/gsl_rng.h>
 
 std::map<unsigned long int, unsigned long int> generator(const gsl_rng_type *type, int k, int n)
