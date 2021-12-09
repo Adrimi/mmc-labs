@@ -59,7 +59,7 @@ int main()
     double result = ((double)k * (double)sum) / (double)n - (double)n;
 
     std::cout << std::endl;
-    std::cout << "Result from GOOD rng generator for " << n << " total probes and " << k << " intervals is " << result << std::endl;
+    std::cout << "Result from GOOD rng generator for " << n << " total samples and " << k << " intervals is " << result << std::endl;
 
     if (result > critical_values_0_05[i])
     {
@@ -87,7 +87,7 @@ int main()
     double result = ((double)k * (double)sum) / (double)n - (double)n;
 
     std::cout << std::endl;
-    std::cout << "Result from BAD rng generator for " << n << " total probes and " << k << " intervals is " << result << std::endl;
+    std::cout << "Result from BAD rng generator for " << n << " total samples and " << k << " intervals is " << result << std::endl;
 
     if (result > critical_values_0_05[i])
     {
