@@ -2,10 +2,6 @@
 
 from matplotlib import pyplot as plt
 import numpy as np
-# Biblioteka wspierająca obliczenia naukowe.
-# Importujemy jedynie klasę odpowiedzialną za wyznaczanie
-# różnych wielkości charakteryzujących rozkład normalny.
-from scipy.stats import norm
 
 
 def print(filename):
