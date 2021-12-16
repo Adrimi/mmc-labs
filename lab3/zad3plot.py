@@ -4,19 +4,14 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 
-def prob_fun(x):
+def teoretical_function(x):
   return 5 / 12 * (1 + (x - 1)**4)
 
 
 def plot(filename):
-  random_numbers, teoretical, experiment = np.loadtxt(filename, unpack=True)
+  experiment = np.loadtxt(filename, unpack=True)
   x = np.linspace(0, 2, num=100000)
-
-  temp = []
-  for i in x:
-    temp.append(prob_fun(i))
-
-  teoretical = temp
+  teoretical = [teoretical_function(i) for i in x]
 
   plt.figure()
   plt.xlim([0, 2])

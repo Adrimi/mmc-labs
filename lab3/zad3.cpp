@@ -56,14 +56,14 @@ double superposition()
   }
 }
 
-void save_to_file(std::string filename, std::vector<std::vector<double>> input)
+void save_to_file(std::string filename, std::vector<double> input)
 {
   std::ofstream ofs;
   ofs.open(filename);
 
   for (int i = 0; i < input.size(); i++)
   {
-    ofs << input[i][0] << " " << input[i][1] << " " << input[i][2] << std::endl;
+    ofs << input[i] << std::endl;
   }
 
   ofs.close();
@@ -75,17 +75,16 @@ int main()
   using std::chrono::high_resolution_clock;
 
   int iterations = 100000;
-  std::vector<std::vector<double>> acceptance_rejection_experiment;
-  std::vector<std::vector<double>> superposition_experiment;
+
+  std::vector<double> acceptance_rejection_experiment;
+  std::vector<double> superposition_experiment;
 
   auto t1 = high_resolution_clock::now();
 
   for (int i = 0; i < iterations; i++)
   {
-    double random_value = randomix_2000(0, 2);
-    double teoretical_value = random_number_from_probability_density(random_value);
     double experiment_value = acceptance_rejection();
-    acceptance_rejection_experiment.push_back({random_value, teoretical_value, experiment_value});
+    acceptance_rejection_experiment.push_back(experiment_value);
   }
 
   auto t2 = high_resolution_clock::now();
@@ -98,10 +97,8 @@ int main()
 
   for (int i = 0; i < iterations; i++)
   {
-    double random_value = randomix_2000(0, 2);
-    double teoretical_value = random_number_from_probability_density(random_value);
     double experiment_value = superposition();
-    superposition_experiment.push_back({random_value, teoretical_value, experiment_value});
+    superposition_experiment.push_back(experiment_value);
   }
 
   auto t4 = high_resolution_clock::now();
