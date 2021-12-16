@@ -8,6 +8,8 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"-lgsl",
+				"-std=c++20",
+				"-lstdc++",
 				"-Wc++11-extensions",
 				"-g",
 				"${file}",

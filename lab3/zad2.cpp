@@ -5,29 +5,18 @@
 
 #define PI 3.141592653589793
 
-double superpower(double base, double exponent)
-{
-  if (base < 0)
-  {
-    return pow((-1) * base, exponent);
-  }
-  else
-  {
-    return pow(base, exponent);
-  }
-}
+std::uniform_real_distribution<float> uniform;
+std::random_device rd;
+std::mt19937 randomSource(rd());
 
 double standart_twodim_generator(double x, double y)
 {
-  return (1 / (2 * PI)) * exp((-1) * (superpower(x, 2) + superpower(y, 2)) / 2);
+  return (1.0 / (2.0 * PI)) * exp((-1.0) * (pow(x, 2.0) + pow(y, 2.0)) / 2.0);
 }
 
 double randomix_2000(double min, double max)
 {
-  std::uniform_real_distribution<float> uniform;
-  std::random_device rd;
-  std::mt19937 randomSource(rd());
-  return (double)uniform(randomSource);
+  return (double)uniform(randomSource) * max;
 }
 
 std::pair<double, double> marsaglii_braya()
@@ -42,7 +31,7 @@ std::pair<double, double> marsaglii_braya()
     b = u * u + v * v;
   } while (b >= 1);
 
-  double z = sqrt(-2. * log(b) / b);
+  double z = sqrt(-2.0 * log(b) / b);
 
   return std::pair<double, double>(u * z, v * z);
 }
