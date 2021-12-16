@@ -2,6 +2,8 @@
 #include <fstream>
 #include <random>
 #include <math.h>
+#include <chrono>
+#include <vector>
 
 #define PI 3.141592653589793
 
@@ -47,30 +49,56 @@ std::pair<double, double> box_mueller()
   return std::pair<double, double>(x, y);
 }
 
-int main()
+void save_to_file(std::string filename, std::vector<std::pair<double, double>> input)
 {
   std::ofstream ofs;
+  ofs.open(filename);
+
+  for (int i = 0; i < input.size(); i++)
+  {
+    ofs << input[i].first << " " << input[i].second << std::endl;
+  }
+
+  ofs.close();
+}
+
+int main()
+{
+  using std::chrono::duration;
+  using std::chrono::high_resolution_clock;
+
   int iterations = 100000;
 
-  ofs.open("zad2_box_muller.txt");
+  std::vector<std::pair<double, double>> box_mueller_values;
+  std::vector<std::pair<double, double>> marsaglii_bray_values;
 
+  auto t1 = high_resolution_clock::now();
   for (int i = 0; i < iterations; i++)
   {
-    auto point = box_mueller();
-    ofs << point.first << " " << point.second << std::endl;
+    std::pair<double, double> experiment_value = box_mueller();
+    box_mueller_values.push_back(experiment_value);
   }
+  auto t2 = high_resolution_clock::now();
 
-  ofs.close();
+  /* Getting number of milliseconds as a double. */
+  duration<double, std::milli> ms_double = t2 - t1;
+  std::cout << "Box mueller experiment took " << ms_double.count() << " ms." << std::endl;
 
-  ofs.open("zad2_marsaglii_braya.txt");
-
+  auto t3 = high_resolution_clock::now();
   for (int i = 0; i < iterations; i++)
   {
-    auto point = marsaglii_braya();
-    ofs << point.first << " " << point.second << std::endl;
+    std::pair<double, double> experiment_value = marsaglii_braya();
+    marsaglii_bray_values.push_back(experiment_value);
   }
+  auto t4 = high_resolution_clock::now();
 
-  ofs.close();
+  /* Getting number of milliseconds as a double. */
+  duration<double, std::milli> ms_double_2 = t4 - t3;
+  std::cout << "Marsaglii Bray experiment took " << ms_double_2.count() << " ms." << std::endl;
+
+  /* Save to file */
+  save_to_file("zad2_box_mueller.txt", box_mueller_values);
+  save_to_file("zad2_marsaglii_bray.txt", marsaglii_bray_values);
 
   return 0;
 }

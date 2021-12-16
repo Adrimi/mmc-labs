@@ -18,8 +18,8 @@ def print(filename):
 
 
 def main():
-  print('lab3/zad2_box_muller.txt')
-  print('lab3/zad2_marsaglii_braya.txt')
+  print('lab3/zad2_box_mueller.txt')
+  print('lab3/zad2_marsaglii_bray.txt')
 
 
 if __name__ == '__main__':
