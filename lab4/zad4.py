@@ -132,26 +132,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-
-# EXP[g(x)] = 0.65993265993266 | Var(g(x)) = 0.09248887885761675
-# N = 100
-# I w/o correction | Estimate = 0.630201 | Uncertainty = 0.031438 | Delta = 0.006419
-# I w/w correction | Estimate = 0.630201 | Uncertainty = 0.031438 | Delta = 0.006419
-# N = 1000
-# I w/o correction | Estimate = 0.635983 | Uncertainty = 0.009753 | Delta = 0.000637
-# I w/w correction | Estimate = 0.635983 | Uncertainty = 0.009753 | Delta = 0.000637
-# N = 10000
-# I w/o correction | Estimate = 0.636556 | Uncertainty = 0.003078 | Delta = 0.000064
-# I w/w correction | Estimate = 0.636556 | Uncertainty = 0.003078 | Delta = 0.000064
-# N = 100000
-# I w/o correction | Estimate = 0.636613 | Uncertainty = 0.000973 | Delta = 0.000006
-# I w/w correction | Estimate = 0.636614 | Uncertainty = 0.000973 | Delta = 0.000006
-# N = 1000000
-# I w/o correction | Estimate = 0.636619 | Uncertainty = 0.000308 | Delta = 0.000001
-# I w/w correction | Estimate = 0.636600 | Uncertainty = 0.000308 | Delta = 0.000020
-# N = 10000000
-# I w/o correction | Estimate = 0.636620 | Uncertainty = 0.000097 | Delta = 0.000000
-# I w/w correction | Estimate = 0.590543 | Uncertainty = 0.000098 | Delta = 0.046076
-# N = 100000000
-# I w/o correction | Estimate = 0.636620 | Uncertainty = 0.000031 | Delta = 0.000000
-# I w/w correction | Estimate = -3.731756 | Uncertainty = 0.000438 | Delta = 4.368376
