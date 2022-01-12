@@ -427,18 +427,17 @@ std::vector<float> argConverter(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
     std::vector<float> arguments = argConverter(argc, argv);
-    const int skala_problemu = (int)arguments[0];
 
     // Pierwiastek z liczby osobników (bok kwadratowej siatki).
     // Nie należy bać się liczb rzędu 100 (tysiąca), choć
     // ciekawe ciekawe wyniki można uzyskać i dla 100.
-    const int bok_mapy = 10 * skala_problemu;
+    const int bok_mapy = (int)arguments[0];
 
     // Liczba osobników zarażonych na początku epidemii.
-    const long chorzy_dnia_zero = 10 * skala_problemu;
+    const long chorzy_dnia_zero = (long)arguments[5];
 
     // Liczba osobników zaszczepionych przed nastaniem epidemii.
-    const long zaszczepieni_dnia_zero = 30 * skala_problemu;
+    const long zaszczepieni_dnia_zero = (long)arguments[6];
 
     // Prawdopodobieństwo zarażenia każdego z sąsiadów
     // danego osobnika w jednostce czasu.

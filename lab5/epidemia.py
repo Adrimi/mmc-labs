@@ -8,7 +8,7 @@ import subprocess as p
 def main():
   # compile()
   cleanup_results()
-  # experiment1()
+  experiment2()
 
 
 def compile():
@@ -25,14 +25,22 @@ def cleanup_results():
   ])
 
 
-def simulate(scale=1, days=10, beta=0.5, gamma=0.25, experiments=3):
+def simulate(axis=10,
+             days=10,
+             beta=0.5,
+             gamma=0.25,
+             experiments=1,
+             day0_ill=10,
+             day0_vacc=30):
   p.call([
       './epidemia',
-      str(scale),
+      str(axis),
       str(days),
       str(beta),
       str(gamma),
-      str(experiments)
+      str(experiments),
+      str(day0_ill),
+      str(day0_vacc)
   ])
 
 
@@ -48,13 +56,53 @@ def plot_map(plt=plt, show=False):
     plt.show()
 
 
-def experiment1():
-  figure, axis = plt.subplots(2, 2)
-  plt.tight_layout(h_pad=2)
+def plot_ill():
+  plot_experiment('./chorzy_kazdego_dnia.txt')
+  plt.title('Chodzy kazdego dnia')
 
-  for day, ax in zip([0, 10, 20, 30],
+
+def plot_convalescent():
+  plot_experiment('./ozdrowiali_kazdego_dnia.txt')
+  plt.title('Ozdrowiali kazdego dnia')
+
+
+def plot_susceptibility():
+  plot_experiment('./podatni_kazdego_dnia.txt')
+  plt.title('Podatni kazdego dnia')
+
+
+def plot_experiment(filepath):
+  experiments = np.loadtxt(filepath)
+  x_axis = range(len(experiments[0]))
+  plt.figure()
+  for index, exp in enumerate(experiments):
+    plt.plot(x_axis, exp, 'r-', label=f'Day {index}')
+
+
+def experiment2():
+  simulate(axis=100,
+           days=200,
+           experiments=20,
+           day0_ill=5,
+           day0_vacc=100 * 100 * 0.3)
+  plot_ill()
+  plot_convalescent()
+  plot_susceptibility()
+  plt.show()
+
+
+def experiment1():
+  _, axis = plt.subplots(2, 2)
+  plt.tight_layout(h_pad=2)
+  x_scale = 100
+  vacc_percent = 0.3
+
+  for day, ax in zip([0, 100, 200, 500],
                      [axis[0, 0], axis[0, 1], axis[1, 0], axis[1, 1]]):
-    simulate(scale=10, days=day)
+    simulate(axis=x_scale,
+             days=day,
+             day0_ill=5,
+             day0_vacc=x_scale * x_scale * vacc_percent)
     plot_map(ax)
     ax.set_title(f'Day {day}')
 
