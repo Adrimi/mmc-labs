@@ -6,7 +6,7 @@ import subprocess as p
 
 
 def main():
-  compile()
+  # compile()
   # cleanup_results()
   experiment2()
 
@@ -84,23 +84,32 @@ def plot_experiment(filepath):
 
 
 def experiment2():
-  # Stage 1 - Vaccinated population percent dependency on sus population
+  # Initial values
+  days = 200
+  experiments = 5
+  day0_ill = 5
+  beta = 0.8
   size = 100
   total_population = size**2
-  vacc_population_space = np.linspace(0, total_population - size, 99, dtype=int)
+
+  # Stage 1 - Vaccinated population percent dependency on sus population
+  vacc_population_space = np.linspace(0,
+                                      total_population - size,
+                                      size + 1,
+                                      dtype=int)
   results_space = []
 
   for index, vacc in enumerate(vacc_population_space):
-    flush(f'Simulation nr {index}/{len(vacc_population_space) - 1}')
+    flush(f'Vaccinate simulation nr {index}/{len(vacc_population_space) - 1}')
     simulate(axis=size,
-             days=200,
-             beta=0.5,
-             experiments=5,
-             day0_ill=5,
+             days=days,
+             beta=beta,
+             experiments=experiments,
+             day0_ill=day0_ill,
              day0_vacc=vacc)
 
-    experiments = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
-    results_space.append(experiments.min())
+    results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+    results_space.append(results.min())
     cleanup_results()
 
   flush('Simulation completed')
@@ -110,55 +119,59 @@ def experiment2():
   plt.xlabel('Procent zaszczepionych')
   plt.ylabel('Liczba osób podatnych')
   plt.grid()
-  plt.show()
 
-  # # Stage 2 - Beta dependency
-  # beta_space = np.linspace(0, 1, 10)
+  # Stage 2 - Beta dependency, assuming 30% of vaccined
+  # beta_space = np.linspace(0.01, 1, size)
   # results_space = []
-  # size = 100
 
-  # for beta in beta_space:
+  # for index, beta in enumerate(beta_space):
+  #   flush(f'Beta Simulation nr {index}/{len(beta_space) - 1}')
   #   simulate(axis=size,
-  #            days=200,
+  #            days=days,
   #            beta=beta,
-  #            experiments=20,
-  #            day0_ill=5,
-  #            day0_vacc=size * size * 0.3)
+  #            experiments=experiments,
+  #            day0_ill=day0_ill,
+  #            day0_vacc=total_population * 0.3)
 
-  #   experiments = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
-  #   results_space.append([e.mean() for e in experiments])
+  #   results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+  #   results_space.append(results.min())
   #   cleanup_results()
 
+  # flush('Simulation completed')
   # plt.figure()
-  # plt.plot(beta_space, results_space, 'b*')
-  # plt.title('Średnia podatnych osób od Beta')
-  # plt.xlabel('Beta')
-  # plt.ylabel('Średnia podatnych')
-
-  # # Stage 3 - Gamma dependency
-  # gamma_space = np.linspace(0, 1, 10)
-  # results_space = []
-  # size = 100
-
-  # for gamma in gamma_space:
-  #   simulate(axis=size,
-  #            days=200,
-  #            beta=0.5,
-  #            gamma=gamma,
-  #            experiments=20,
-  #            day0_ill=5,
-  #            day0_vacc=size * size * 0.3)
-
-  #   experiments = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
-  #   results_space.append([e.mean() for e in experiments])
-  #   cleanup_results()
-
-  # plt.figure()
-  # plt.plot(gamma_space, results_space, 'b*')
-  # plt.title('Średnia podatnych osób od Gamma')
-  # plt.xlabel('Gamma')
-  # plt.ylabel('Średnia podatnych')
+  # plt.plot(beta_space, results_space, 'b-')
+  # plt.title('Średnia podatnych osób od wsp. Beta')
+  # plt.xlabel('Współczynnik Beta')
+  # plt.ylabel('Liczba osób podatnych')
+  # plt.grid()
   # plt.show()
+
+  # # Stage 3 - Gamma dependency with Beta 0.5 and vaccinated 30%
+  # gamma_space = np.linspace(0.1, 1, size)
+  # results_space = []
+
+  # for index, gamma in enumerate(gamma_space):
+  #   flush(f'Gamma simulation nr {index}/{len(gamma_space) - 1}')
+  #   simulate(axis=size,
+  #            days=days,
+  #            beta=beta,
+  #            gamma=gamma,
+  #            experiments=experiments,
+  #            day0_ill=day0_ill,
+  #            day0_vacc=total_population * 0.3)
+
+  #   results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+  #   results_space.append(results.min())
+  #   cleanup_results()
+
+  # flush('Simulation completed')
+  # plt.figure()
+  # plt.plot(gamma_space, results_space, 'g-')
+  # plt.title('Średnia podatnych osób od wsp. Gamma')
+  # plt.xlabel('Współczynnik Gamma')
+  # plt.ylabel('Liczba osób podatnych')
+  # plt.grid()
+  plt.show()
 
 
 def experiment1():
