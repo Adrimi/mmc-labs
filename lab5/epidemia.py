@@ -58,7 +58,7 @@ def plot_map(plt=plt, show=False):
 
 def plot_ill():
   plot_experiment('./chorzy_kazdego_dnia.txt')
-  plt.title('Chodzy kazdego dnia')
+  plt.title('Chorzy kazdego dnia')
 
 
 def plot_convalescent():
@@ -71,23 +71,54 @@ def plot_susceptibility():
   plt.title('Podatni kazdego dnia')
 
 
+def plot_ill_mean():
+  plot_experiment_mean('./chorzy_kazdego_dnia.txt')
+  plt.title('Średnia chorych kazdego dnia')
+
+
+def plot_convalescent_mean():
+  plot_experiment_mean('./ozdrowiali_kazdego_dnia.txt')
+  plt.title('Średnia ozdrowiałych kazdego dnia')
+
+
+def plot_susceptibility_mean():
+  plot_experiment_mean('./podatni_kazdego_dnia.txt')
+  plt.title('Średnia podatnych kazdego dnia')
+
+
 def plot_experiment(filepath):
   experiments = np.loadtxt(filepath)
   x_axis = range(len(experiments[0]))
   plt.figure()
-  for index, exp in enumerate(experiments):
-    plt.plot(x_axis, exp, 'r-', label=f'Day {index}')
+  for exp in experiments:
+    plt.plot(x_axis, exp, 'r-')
+
+
+def plot_experiment_mean(filepath):
+  experiments = np.loadtxt(filepath)
+  y_axis = [e.mean() for e in experiments]
+  x_axis = range(len(y_axis))
+
+  # plt.figure()
+  plt.plot(x_axis, y_axis, 'r-', label=f'Mean')
 
 
 def experiment2():
-  simulate(axis=100,
-           days=200,
-           experiments=20,
-           day0_ill=5,
-           day0_vacc=100 * 100 * 0.3)
-  plot_ill()
-  plot_convalescent()
-  plot_susceptibility()
+  # Stage 1 - Beta dependency
+  beta_space = np.slinspace(0, 1, 10)
+
+  for beta in beta_space:
+    simulate(axis=100,
+             days=200,
+             beta=beta,
+             experiments=20,
+             day0_ill=5,
+             day0_vacc=100 * 100 * 0.3)
+
+    plot_susceptibility_mean()
+  plt.title('Średnia podatnych kazdego dnia od Beta')
+  plt.xlabel('Beta')
+  plt.ylabel('średnia podatnych')
   plt.show()
 
 
