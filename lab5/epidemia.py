@@ -8,7 +8,9 @@ import subprocess as p
 def main():
   # compile()
   # cleanup_results()
-  experiment2()
+  experiment_vacc_sus()
+  # experiment_sus_beta()
+  # experiment_sus_gamma()
 
 
 def compile():
@@ -29,13 +31,7 @@ def flush(text):
   print(f'\r{text}', flush=True, end='')
 
 
-def simulate(axis=10,
-             days=10,
-             beta=0.5,
-             gamma=0.25,
-             experiments=1,
-             day0_ill=10,
-             day0_vacc=30):
+def simulate(axis, days, beta, gamma, experiments, day0_ill, day0_vacc):
   p.call([
       './epidemia',
       str(axis),
@@ -48,51 +44,16 @@ def simulate(axis=10,
   ])
 
 
-def plot_map(plt=plt, show=False):
-  matrix = np.loadtxt('./mapa.txt', unpack=True)
-
-  side = range(len(matrix[0]))
-  X, Y = np.meshgrid(side, side)
-  Z = [[int(r) for r in row] for row in matrix]
-
-  plt.pcolormesh(X, Y, Z)
-  if show:
-    plt.show()
-
-
-def plot_ills():
-  plot_experiment('./chorzy_kazdego_dnia.txt')
-  plt.title('Chorzy kazdego dnia')
-
-
-def plot_convalescens():
-  plot_experiment('./ozdrowiali_kazdego_dnia.txt')
-  plt.title('Ozdrowiali kazdego dnia')
-
-
-def plot_susceptibilies():
-  plot_experiment('./podatni_kazdego_dnia.txt')
-  plt.title('Podatni kazdego dnia')
-
-
-def plot_experiment(filepath):
-  experiments = np.loadtxt(filepath)
-  x_axis = range(len(experiments[0]))
-  plt.figure()
-  for exp in experiments:
-    plt.plot(x_axis, exp, 'r-')
-
-
-def experiment2():
+def experiment_vacc_sus():
   # Initial values
   days = 200
   experiments = 5
   day0_ill = 5
-  beta = 0.8
+  beta = 0.5
+  gamma = 0.25
   size = 100
   total_population = size**2
 
-  # Stage 1 - Vaccinated population percent dependency on sus population
   vacc_population_space = np.linspace(0,
                                       total_population - size,
                                       size + 1,
@@ -104,6 +65,7 @@ def experiment2():
     simulate(axis=size,
              days=days,
              beta=beta,
+             gamma=gamma,
              experiments=experiments,
              day0_ill=day0_ill,
              day0_vacc=vacc)
@@ -120,58 +82,79 @@ def experiment2():
   plt.ylabel('Liczba osób podatnych')
   plt.grid()
 
+
+def experiment_sus_beta():
+  # Initial values
+  days = 200
+  experiments = 5
+  day0_ill = 5
+  beta = 0.3
+  gamma = 0.25
+  size = 100
+  total_population = size**2
+
   # Stage 2 - Beta dependency, assuming 30% of vaccined
-  # beta_space = np.linspace(0.01, 1, size)
-  # results_space = []
+  beta_space = np.linspace(0.01, 1, size)
+  results_space = []
 
-  # for index, beta in enumerate(beta_space):
-  #   flush(f'Beta Simulation nr {index}/{len(beta_space) - 1}')
-  #   simulate(axis=size,
-  #            days=days,
-  #            beta=beta,
-  #            experiments=experiments,
-  #            day0_ill=day0_ill,
-  #            day0_vacc=total_population * 0.3)
+  for index, beta in enumerate(beta_space):
+    flush(f'Beta Simulation nr {index}/{len(beta_space) - 1}')
+    simulate(axis=size,
+             days=days,
+             beta=beta,
+             gamma=gamma,
+             experiments=experiments,
+             day0_ill=day0_ill,
+             day0_vacc=total_population * 0.3)
 
-  #   results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
-  #   results_space.append(results.min())
-  #   cleanup_results()
+    results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+    results_space.append(results.min())
+    cleanup_results()
 
-  # flush('Simulation completed')
-  # plt.figure()
-  # plt.plot(beta_space, results_space, 'b-')
-  # plt.title('Średnia podatnych osób od wsp. Beta')
-  # plt.xlabel('Współczynnik Beta')
-  # plt.ylabel('Liczba osób podatnych')
-  # plt.grid()
-  # plt.show()
+  flush('Simulation completed')
+  plt.figure()
+  plt.plot(beta_space, results_space, 'b-')
+  plt.title('Średnia podatnych osób od wsp. Beta')
+  plt.xlabel('Współczynnik Beta')
+  plt.ylabel('Liczba osób podatnych')
+  plt.grid()
+
+
+def experiment_sus_gamma():
+  # Initial values
+  days = 200
+  experiments = 5
+  day0_ill = 5
+  beta = 0.3
+  gamma = 0.25
+  size = 100
+  total_population = size**2
 
   # # Stage 3 - Gamma dependency with Beta 0.5 and vaccinated 30%
-  # gamma_space = np.linspace(0.1, 1, size)
-  # results_space = []
+  gamma_space = np.linspace(0.1, 1, size)
+  results_space = []
 
-  # for index, gamma in enumerate(gamma_space):
-  #   flush(f'Gamma simulation nr {index}/{len(gamma_space) - 1}')
-  #   simulate(axis=size,
-  #            days=days,
-  #            beta=beta,
-  #            gamma=gamma,
-  #            experiments=experiments,
-  #            day0_ill=day0_ill,
-  #            day0_vacc=total_population * 0.3)
+  for index, gamma in enumerate(gamma_space):
+    flush(f'Gamma simulation nr {index}/{len(gamma_space) - 1}')
+    simulate(axis=size,
+             days=days,
+             beta=beta,
+             gamma=gamma,
+             experiments=experiments,
+             day0_ill=day0_ill,
+             day0_vacc=total_population * 0.3)
 
-  #   results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
-  #   results_space.append(results.min())
-  #   cleanup_results()
+    results = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+    results_space.append(results.min())
+    cleanup_results()
 
-  # flush('Simulation completed')
-  # plt.figure()
-  # plt.plot(gamma_space, results_space, 'g-')
-  # plt.title('Średnia podatnych osób od wsp. Gamma')
-  # plt.xlabel('Współczynnik Gamma')
-  # plt.ylabel('Liczba osób podatnych')
-  # plt.grid()
-  plt.show()
+  flush('Simulation completed')
+  plt.figure()
+  plt.plot(gamma_space, results_space, 'g-')
+  plt.title('Średnia podatnych osób od wsp. Gamma')
+  plt.xlabel('Współczynnik Gamma')
+  plt.ylabel('Liczba osób podatnych')
+  plt.grid()
 
 
 def experiment1():
@@ -190,6 +173,18 @@ def experiment1():
     ax.set_title(f'Day {day}')
 
   plt.show()
+
+
+def plot_map(plt=plt, show=False):
+  matrix = np.loadtxt('./mapa.txt', unpack=True)
+
+  side = range(len(matrix[0]))
+  X, Y = np.meshgrid(side, side)
+  Z = [[int(r) for r in row] for row in matrix]
+
+  plt.pcolormesh(X, Y, Z)
+  if show:
+    plt.show()
 
 
 if __name__ == '__main__':
