@@ -71,21 +71,6 @@ def plot_susceptibility():
   plt.title('Podatni kazdego dnia')
 
 
-def plot_ill_mean():
-  plot_experiment_mean('./chorzy_kazdego_dnia.txt')
-  plt.title('Średnia chorych kazdego dnia')
-
-
-def plot_convalescent_mean():
-  plot_experiment_mean('./ozdrowiali_kazdego_dnia.txt')
-  plt.title('Średnia ozdrowiałych kazdego dnia')
-
-
-def plot_susceptibility_mean():
-  plot_experiment_mean('./podatni_kazdego_dnia.txt')
-  plt.title('Średnia podatnych kazdego dnia')
-
-
 def plot_experiment(filepath):
   experiments = np.loadtxt(filepath)
   x_axis = range(len(experiments[0]))
@@ -95,30 +80,61 @@ def plot_experiment(filepath):
 
 
 def plot_experiment_mean(filepath):
-  experiments = np.loadtxt(filepath)
+  experiments = np.loadtxt(filepath, unpack=True)
   y_axis = [e.mean() for e in experiments]
   x_axis = range(len(y_axis))
 
   # plt.figure()
-  plt.plot(x_axis, y_axis, 'r-', label=f'Mean')
+  plt.plot(x_axis, y_axis, 'r-')
 
 
 def experiment2():
   # Stage 1 - Beta dependency
-  beta_space = np.slinspace(0, 1, 10)
+  beta_space = np.linspace(0, 1, 10)
+  results_space = []
+  size = 100
 
   for beta in beta_space:
-    simulate(axis=100,
+    simulate(axis=size,
              days=200,
              beta=beta,
              experiments=20,
              day0_ill=5,
-             day0_vacc=100 * 100 * 0.3)
+             day0_vacc=size * size * 0.3)
 
-    plot_susceptibility_mean()
-  plt.title('Średnia podatnych kazdego dnia od Beta')
+    experiments = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+    results_space.append([e.mean() for e in experiments])
+    cleanup_results()
+
+  plt.figure()
+  plt.plot(beta_space, results_space, 'b*')
+  plt.title('Średnia podatnych osób od Beta')
   plt.xlabel('Beta')
-  plt.ylabel('średnia podatnych')
+  plt.ylabel('Średnia podatnych')
+
+  # Stage 2 - Gamma dependency
+  gamma_space = np.linspace(0, 1, 10)
+  results_space = []
+  size = 100
+
+  for gamma in gamma_space:
+    simulate(axis=size,
+             days=200,
+             beta=0.5,
+             gamma=gamma,
+             experiments=20,
+             day0_ill=5,
+             day0_vacc=size * size * 0.3)
+
+    experiments = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
+    results_space.append([e.mean() for e in experiments])
+    cleanup_results()
+
+  plt.figure()
+  plt.plot(gamma_space, results_space, 'b*')
+  plt.title('Średnia podatnych osób od Gamma')
+  plt.xlabel('Gamma')
+  plt.ylabel('Średnia podatnych')
   plt.show()
 
 
