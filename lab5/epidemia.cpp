@@ -457,7 +457,7 @@ int main(int argc, char *argv[])
 
     for (int eksp_nr = 0; eksp_nr < ile_eksperymentow; ++eksp_nr)
     {
-        std::cout << "Eksperyment " << eksp_nr + 1 << "/" << ile_eksperymentow << std::endl;
+        // std::cout << "Eksperyment " << eksp_nr + 1 << "/" << ile_eksperymentow << std::endl;
 
         Wirus wirus(beta, gamma);
         Statystyka chorzy(Stan::chory);
@@ -494,14 +494,14 @@ int main(int argc, char *argv[])
             // UWAGA! Plik z symbolicznie zapisanymi stanami wszystkich osobników może być duży!
             miasto.zapisz_do_pliku("mapa.txt");
 
-            std::cout << "\n\nPodsumowanie ostatniego z " << ile_eksperymentow << " eksperymentów Monte Carlo" << std::endl;
-            std::cout << "  Szczyt zachorowań przypada na dzień " << chorzy.kiedy_maksimum() << std::endl;
-            std::cout << "  Liczba zarażonych w szczycie to " << chorzy.maksimum();
-            std::cout << " (" << 100 * chorzy.maksimum() / miasto.liczebnosc() << "% populacji)" << std::endl;
-            std::cout << "  Liczba zarażonych przekraczała 5% populacji przez "
-                      << chorzy.ile_dni_powyzej(long(0.05 * miasto.liczebnosc())) << " dni" << std::endl;
-            std::cout << "  Liczba zarażonych utrzymuje się poniżej 5% populacji od dnia "
-                      << chorzy.od_kiedy_ponizej(long(0.05 * miasto.liczebnosc())) << std::endl;
+            // std::cout << "\n\nPodsumowanie ostatniego z " << ile_eksperymentow << " eksperymentów Monte Carlo" << std::endl;
+            // std::cout << "  Szczyt zachorowań przypada na dzień " << chorzy.kiedy_maksimum() << std::endl;
+            // std::cout << "  Liczba zarażonych w szczycie to " << chorzy.maksimum();
+            // std::cout << " (" << 100 * chorzy.maksimum() / miasto.liczebnosc() << "% populacji)" << std::endl;
+            // std::cout << "  Liczba zarażonych przekraczała 5% populacji przez "
+            //           << chorzy.ile_dni_powyzej(long(0.05 * miasto.liczebnosc())) << " dni" << std::endl;
+            // std::cout << "  Liczba zarażonych utrzymuje się poniżej 5% populacji od dnia "
+            //           << chorzy.od_kiedy_ponizej(long(0.05 * miasto.liczebnosc())) << std::endl;
         }
     }
     return 0;

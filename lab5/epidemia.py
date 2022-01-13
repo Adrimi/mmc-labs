@@ -6,8 +6,8 @@ import subprocess as p
 
 
 def main():
-  # compile()
-  cleanup_results()
+  compile()
+  # cleanup_results()
   experiment2()
 
 
@@ -23,6 +23,10 @@ def cleanup_results():
       'rm', 'mapa.txt', 'ozdrowiali_kazdego_dnia.txt',
       'podatni_kazdego_dnia.txt', 'chorzy_kazdego_dnia.txt'
   ])
+
+
+def flush(text):
+  print(f'\r{text}', flush=True, end='')
 
 
 def simulate(axis=10,
@@ -83,13 +87,11 @@ def experiment2():
   # Stage 1 - Vaccinated population percent dependency on sus population
   size = 100
   total_population = size**2
-  vacc_population_space = np.linspace(0,
-                                      total_population - size,
-                                      20,
-                                      dtype=np.int)
+  vacc_population_space = np.linspace(0, total_population - size, 99, dtype=int)
   results_space = []
 
-  for vacc in vacc_population_space:
+  for index, vacc in enumerate(vacc_population_space):
+    flush(f'Simulation nr {index}/{len(vacc_population_space) - 1}')
     simulate(axis=size,
              days=200,
              beta=0.5,
@@ -98,14 +100,16 @@ def experiment2():
              day0_vacc=vacc)
 
     experiments = np.loadtxt('./podatni_kazdego_dnia.txt', unpack=True)
-    results_space.append([e.mean() for e in experiments])
+    results_space.append(experiments.min())
     cleanup_results()
 
+  flush('Simulation completed')
   plt.figure()
-  plt.plot([v / size for v in vacc_population_space], results_space, 'b*')
+  plt.plot([v / size for v in vacc_population_space], results_space, 'r-')
   plt.title('Średnia podatnych osób od procentu populacji osoób zaszczepionych')
   plt.xlabel('Procent zaszczepionych')
   plt.ylabel('Liczba osób podatnych')
+  plt.grid()
   plt.show()
 
   # # Stage 2 - Beta dependency
