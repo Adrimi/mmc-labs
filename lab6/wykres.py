@@ -11,9 +11,9 @@ with open("out.txt", "r") as file:
 
   for line in lines:
     if "T " in line:
-      X.append(float(line.split()[-1]))
-    if "Srednia Magnetyzacja" in line:
       Y.append(float(line.split()[-1]))
+    if "Srednia Magnetyzacja" in line:
+      X.append(float(line.split()[-1]))
 
 plt.plot(X, Y)
 plt.show()
