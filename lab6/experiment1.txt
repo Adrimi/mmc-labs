@@ -1,0 +1,115 @@
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -768.256
+Srednia Energia Duszka =  0.256
+Srednia Magnetyzacja   =  0.978325
+T = 1.42303
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -736.524
+Srednia Energia Duszka =  0.524
+Srednia Magnetyzacja   =  0.95209
+T = 1.85558
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -704.608
+Srednia Energia Duszka =  0.608
+Srednia Magnetyzacja   =  0.91989
+T = 1.97494
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -672.82
+Srednia Energia Duszka =  0.82
+Srednia Magnetyzacja   =  0.88796
+T = 2.25832
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -640.856
+Srednia Energia Duszka =  0.856
+Srednia Magnetyzacja   =  0.84445
+T = 2.30455
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -608.924
+Srednia Energia Duszka =  0.924
+Srednia Magnetyzacja   =  0.79658
+T = 2.39068
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -576.888
+Srednia Energia Duszka =  0.888
+Srednia Magnetyzacja   =  0.739805
+T = 2.34526
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -544.92
+Srednia Energia Duszka =  0.92
+Srednia Magnetyzacja   =  0.66676
+T = 2.38565
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -512.824
+Srednia Energia Duszka =  0.824
+Srednia Magnetyzacja   =  0.494085
+T = 2.26348
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -480.932
+Srednia Energia Duszka =  0.932
+Srednia Magnetyzacja   =  0.474545
+T = 2.40072
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -448.932
+Srednia Energia Duszka =  0.932
+Srednia Magnetyzacja   =  0.28699
+T = 2.40072
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -416.98
+Srednia Energia Duszka =  0.98
+Srednia Magnetyzacja   =  0.22936
+T = 2.46058
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -385.216
+Srednia Energia Duszka =  1.216
+Srednia Magnetyzacja   =  0.19116
+T = 2.74694
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -353.252
+Srednia Energia Duszka =  1.252
+Srednia Magnetyzacja   =  0.150525
+T = 2.78966
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -321.584
+Srednia Energia Duszka =  1.584
+Srednia Magnetyzacja   =  0.127995
+T = 3.17472
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -289.692
+Srednia Energia Duszka =  1.692
+Srednia Magnetyzacja   =  0.114305
+T = 3.2972
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -257.736
+Srednia Energia Duszka =  1.736
+Srednia Magnetyzacja   =  0.09234
+T = 3.34678
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -226.28
+Srednia Energia Duszka =  2.28
+Srednia Magnetyzacja   =  0.080555
+T = 3.94791
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -194.44
+Srednia Energia Duszka =  2.44
+Srednia Magnetyzacja   =  0.074755
+T = 4.12146
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -163.356
+Srednia Energia Duszka =  3.356
+Srednia Magnetyzacja   =  0.065715
+T = 5.09706
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -132.004
+Srednia Energia Duszka =  4.004
+Srednia Magnetyzacja   =  0.058395
+T = 5.77494
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -101.772
+Srednia Energia Duszka =  5.772
+Srednia Magnetyzacja   =  0.0523
+T = 7.5973
+Symulacja modelu Isinga w Zespole Mikrokanonicznym
+Srednia Energia Ukladu = -72.4
+Srednia Energia Duszka =  8.4
+Srednia Magnetyzacja   =  0.048645
+T = 10.2705
