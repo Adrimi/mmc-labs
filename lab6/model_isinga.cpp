@@ -68,6 +68,7 @@ int model_isinga::Delta_E(int i, int j)
 	int lewy, prawy, gorny, dolny;
 	int E_pocz, E_konc;
 
+	// Y-axis setup
 	gorny = i - 1;
 	dolny = i + 1;
 	if (i == 0)
@@ -75,6 +76,7 @@ int model_isinga::Delta_E(int i, int j)
 	if (i == L - 1)
 		dolny = 0;
 
+	// X-axis setup
 	prawy = j + 1;
 	lewy = j - 1;
 	if (j == 0)
@@ -82,6 +84,7 @@ int model_isinga::Delta_E(int i, int j)
 	if (j == L - 1)
 		prawy = 0;
 
+	// Energy at beggining is a state of the center, multiplied by sum of all 4 neighbours
 	E_pocz = siatka[i][j] * (siatka[i][lewy] + siatka[i][prawy] + siatka[gorny][j] + siatka[dolny][j]);
 	E_konc = -E_pocz;
 

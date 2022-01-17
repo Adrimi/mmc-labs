@@ -2,8 +2,8 @@
 
 # LAB 6
 
-To compile a file `zad2.cpp` use
+To compile a file `zad1.cpp` use
 
 ```shell
-g++ zad2.cpp model_isinga.cpp -Wc++11-extensions -lgsl -o zad1
+g++ zad1.cpp model_isinga.cpp -Wc++11-extensions -std=c++20 -lgsl -o zad1
 ```
