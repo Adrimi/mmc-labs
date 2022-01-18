@@ -1,4 +1,5 @@
 #include "model_isinga.h"
+#include <iostream>
 
 model_isinga::model_isinga()
 {
@@ -61,6 +62,65 @@ void model_isinga::doprowadzenie_do_stanu_rownowagi(int liczba_krokow)
 		}
 	}
 }
+
+// https://www.youtube.com/watch?v=yaY8iNZx7xc
+void model_isinga::doprowadzenie_do_stanu_rownowagi_creutz()
+{
+	int i, j, dE;
+	int E_Duszka_Do_Sredniej = 0;
+	int liczba_krokow = 0;
+	magnetyzacja = L * L;
+	E_Start = -2 * L * L;
+	// 1. Ustalić początkową energię duszka
+	E_Duszka = E - E_Start;
+	ustaw_same_jedynki();
+
+	do
+	{
+		// Petla statystycznie po kazdym spinie
+		for (int k = 0; k < L * L; k++)
+		{
+			// 2. Wybrać w sposób losowy spin układu, a następnie dokonać zmiany stanu układu (zmiana stanu układu na koniec!)
+			i = (int)floor(gsl_rng_uniform(generatorek) * L);
+			j = (int)floor(gsl_rng_uniform(generatorek) * L);
+
+			// 3. Obliczyć różnicę energii między stanami i oraz j
+			dE = Delta_E(i, j);
+
+			// 4. Jeżeli dE < 0, to nowa konfiguracja układu zostaje zaakceptowana, a różnica energii przekazana duszkowi. Powrót do punktu 2.
+			if (dE < 0)
+			{
+				E_Duszka += dE;
+				// magnetyzacja += 2 * siatka[i][j];
+			}
+			// 5. Jeżeli dE > 0, to akceptacja nowej konfiguracji układu następuje jedynie w przypadku, gdy dE + E_Duszka > 0. Wówczas konieczną energię pobiera się od duszka.
+			else if (dE > 0 && dE + E_Duszka > 0)
+			{
+				E_Duszka -= dE;
+			}
+
+			// Zmiana stanu układu
+			siatka[i][j] = -siatka[i][j];
+		}
+
+		// Statystyka
+		// Jako jeden krok MC należy rozumieć próbę zmiany przynajmniej raz (statystycznie) stanu każdego spinu
+		liczba_krokow++;
+		E_Duszka_Do_Sredniej += E_Duszka;
+		std::cout << E_Duszka << std::endl;
+	} while (E_Duszka >= E);
+
+	std::cout << "Energia koncowa duszka: " << E_Duszka << std::endl;
+
+	// Obliczanie srednich
+	// Srednia_Energia_Ukladu = E_tot / (float)liczba_krokow;
+	Srednia_E_Duszka = (float)(E_Duszka_Do_Sredniej) / (float)liczba_krokow;
+	std::cout << "srednia duszka: " << Srednia_E_Duszka << std::endl;
+	std::cout << "kroki: " << liczba_krokow << std::endl;
+	// Srednia_Magnetyzacja = magnetyzacja_tot / (float)liczba_krokow / ((float)L * (float)L);
+	Temperatura = 4.0 / (log(1 + 4.0 / Srednia_E_Duszka));
+}
+
 // Oblicza roznice energii przy zmianie kierunku spinu
 // przy zalozeniu periodycznych warunkow brzegowych
 int model_isinga::Delta_E(int i, int j)

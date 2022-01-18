@@ -8,12 +8,6 @@
 using namespace std;
 
 // https://youtu.be/K--1hlv9yv0
-/** 
- * Once wise man said:
- * Pierwsze ci służy do tego żeby ustalić w jakim zakresie zmieniać temperaturę
- * Ale drugie zadanie tam dwie funkcje trzeba zmienić
- * A w drugim zmieniasz i wykres to ma być zmiany energii czy jakoś tak
-*/
 
 struct EXPERIMENT_CONFIGURATION
 {

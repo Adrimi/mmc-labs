@@ -15,6 +15,7 @@ public:
 	model_isinga(int rozmiar, int energia);
 	~model_isinga();
 	void doprowadzenie_do_stanu_rownowagi(int liczba_krokow);
+	void doprowadzenie_do_stanu_rownowagi_creutz();
 	void zliczanie_srednich(int liczba_krokow);
 	float podaj_srednia_energie_duszka();
 	float podaj_srednia_energie_ukladu();
