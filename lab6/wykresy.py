@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 def main():
   experiments = [0, 1, 2]
   for exp in experiments:
-    with open(f'experiment{exp}.txt', 'r') as file:
+    with open(f'lab6/experiment{exp}_zad2.txt', 'r') as file:
       temperatures = []
       energia = []
       magnetyzer = []
@@ -24,7 +24,7 @@ def main():
       plt.ylabel('Magnetyzacja')
       plt.xlabel('Temperatura')
       plt.grid()
-      plt.savefig(f'exp{exp}-magnet.png')
+      plt.savefig(f'lab6/exp{exp}-magnet_zad2.png')
 
       plt.figure()
       plt.plot(temperatures, energia, label='Energia')
@@ -33,9 +33,7 @@ def main():
       plt.ylabel('Energia')
       plt.xlabel('Temperatura')
       plt.grid()
-      plt.savefig(f'exp{exp}-energy.png')
-
-  plt.show()
+      plt.savefig(f'lab6/exp{exp}-energy_zad2.png')
 
 
 if __name__ == '__main__':

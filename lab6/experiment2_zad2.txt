@@ -1,0 +1,184 @@
+------------------------------------------------
+T = 1
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 1.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 1.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 1.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 1.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 2.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 2.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 2.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 2.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 3
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 3.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 3.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 3.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 3.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 4.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 4.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 4.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 4.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 5
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 5.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 5.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 5.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 5.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 6.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 6.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 6.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 6.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 7
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 7.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 7.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 7.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 7.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 8.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 8.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 8.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 8.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 9
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 9.2
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 9.4
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 9.6
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 9.8
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
+------------------------------------------------
+T = 10
+Srednia Energia Ukladu = 1.444
+Srednia Magnetyzacja   =  0.01996
