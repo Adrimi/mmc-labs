@@ -1,6 +1,8 @@
 #include "model_isinga.h"
 #include <iostream>
 
+using namespace std;
+
 model_isinga::model_isinga()
 {
 	L = 10;
@@ -22,10 +24,10 @@ model_isinga::model_isinga(int rozmiar, int energia)
 	gsl_rng_set(generatorek, 3987);
 }
 
-model_isinga::model_isinga(int rozmiar, double temperatura)
+model_isinga::model_isinga(int rozmiar, float temperatura)
 {
 	L = rozmiar;
-	T = temperatura;
+	Temperatura = temperatura;
 	siatka = new int *[L];
 	for (int i = 0; i < L; i++)
 		siatka[i] = new int[L];
@@ -96,7 +98,7 @@ void model_isinga::doprowadzenie_do_stanu_rownowagi2(int liczba_krokow)
 		else
 		{
 			float p = exp(-dE / Temperatura);
-			float r = floor(gsl_rng_uniform(generatorek));
+			float r = gsl_rng_uniform(generatorek);
 			if (r <= p)
 			{
 				siatka[i][j] = -siatka[i][j];
@@ -197,7 +199,7 @@ void model_isinga::zliczanie_srednich2(int liczba_krokow)
 			else
 			{
 				float p = exp(-dE / Temperatura);
-				float r = floor(gsl_rng_uniform(generatorek));
+				float r = gsl_rng_uniform(generatorek);
 				if (r <= p)
 				{
 					siatka[i][j] = -siatka[i][j];

@@ -13,11 +13,10 @@ class model_isinga
 public:
 	model_isinga();
 	model_isinga(int rozmiar, int energia);
-	model_isinga(int rozmiar, double temperatura);
+	model_isinga(int rozmiar, float temperatura);
 	~model_isinga();
 	void doprowadzenie_do_stanu_rownowagi(int liczba_krokow);
 	void doprowadzenie_do_stanu_rownowagi2(int liczba_krokow);
-	void doprowadzenie_do_stanu_rownowagi_creutz();
 	void zliczanie_srednich(int liczba_krokow);
 	void zliczanie_srednich2(int liczba_krokow);
 	float podaj_srednia_energie_duszka();
@@ -29,7 +28,6 @@ private:
 	gsl_rng *generatorek;
 	int **siatka;
 
-	double T;
 	int L; // Rozmiar siatki
 	int E; // Energia wewnetrzna ukladu
 	int E_Start;

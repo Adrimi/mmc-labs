@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
 		cout << fmt::format("\nRozpoczeto eksperyment nr {}", x + 1);
 
-		for (double t = 1.0; t <= 10.0; t += 0.2)
+		for (float t = 1.0; t <= 10.0; t += 0.2)
 		{
 			model_isinga *p1 = new model_isinga(size, t);
 			p1->doprowadzenie_do_stanu_rownowagi2(1000);
