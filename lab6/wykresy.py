@@ -18,22 +18,24 @@ def main():
           energia.append(float(line.split()[-1]))
 
       plt.figure()
-      plt.plot(magnetyzer, temperatures, label='Magnetyzacja')
+      plt.plot(temperatures, magnetyzer, label='Magnetyzacja')
       plt.title(f'Eksperyment nr {exp + 1}')
       plt.legend()
-      plt.xlabel('Magnetyzacja')
-      plt.ylabel('Temperatura')
+      plt.ylabel('Magnetyzacja')
+      plt.xlabel('Temperatura')
       plt.grid()
       plt.savefig(f'exp{exp}-magnet.png')
 
       plt.figure()
-      plt.plot(energia, temperatures, label='Energia')
+      plt.plot(temperatures, energia, label='Energia')
       plt.title(f'Eksperyment nr {exp + 1}')
       plt.legend()
-      plt.xlabel('Energia')
-      plt.ylabel('Temperatura')
+      plt.ylabel('Energia')
+      plt.xlabel('Temperatura')
       plt.grid()
       plt.savefig(f'exp{exp}-energy.png')
+
+  plt.show()
 
 
 if __name__ == '__main__':
