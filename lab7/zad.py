@@ -69,6 +69,13 @@ def calculate_results(PAIRS, SUMS, M, p):
         ']')
 
 
+def plot(data, title, filename):
+  plt.figure()
+  plt.hist(data, bins=50, density=True)
+  plt.title(title)
+  plt.savefig(filename)
+
+
 def main():
   # 1. Okreslenie liczby prob monte carlo
   M = 10**6
@@ -87,6 +94,10 @@ def main():
 
   calculate_results(PAIRS, SUMS, M, p)
 
+  plot([a for a, b in PAIRS], "X1", "x1_zad1.png")
+  plot([b for a, b in PAIRS], "X2", "x2_zad1.png")
+  plot([a + b for a, b in PAIRS], "Y", "y_zad1.png")
+
   print("--- ZADANIE 2 ---")
 
   # 2. Wygenerowanie M wektorow danych wejsciowych X
@@ -100,20 +111,9 @@ def main():
 
   calculate_results(PAIRS, SUMS, M, p)
 
-  plt.figure()
-  plt.hist([a for a, b in PAIRS], bins=50, density=True)
-  plt.title("X1")
-  plt.savefig("x1.png")
-
-  plt.figure()
-  plt.hist([b for a, b in PAIRS], bins=50, density=True)
-  plt.title("X2")
-  plt.savefig("x2.png")
-
-  plt.figure()
-  plt.hist([a + b for a, b in PAIRS], bins=50, density=True)
-  plt.title("Y")
-  plt.savefig("y.png")
+  plot([a for a, b in PAIRS], "X1", "x1_zad2.png")
+  plot([b for a, b in PAIRS], "X2", "x2_zad2.png")
+  plot([a + b for a, b in PAIRS], "Y", "y_zad2.png")
 
 
 if __name__ == '__main__':
